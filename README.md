@@ -9,7 +9,7 @@ A playground for practicing and exploring **design patterns** in code. This proj
 ## 🚀 How to Run
 1. Clone the repo:
 ```bash
-git clone <repo-url>
+git clone https://github.com/RalitsaTerzieva/pattern-crafters
 cd pattern-crafters
 ```
 
