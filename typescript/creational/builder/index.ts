@@ -57,3 +57,19 @@ class CustomerBuilder implements ICustomerBuilder {
         )
     }
 }
+
+class CustomerDirector {
+    constructor(private builder: ICustomerBuilder) {}
+
+    public buildMinimalCustomer(
+        firstName: string,
+        lastName: string,
+        email: string
+    ) {
+        return this.builder
+        .setFirstName(firstName)
+        .setLastName(lastName)
+        .setEmail(email)
+        .build();
+    }
+}
