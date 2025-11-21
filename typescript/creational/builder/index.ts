@@ -10,7 +10,7 @@ interface ICustomerBuilder {
     setLastName(lastName: string): ICustomerBuilder;
     setEmail(email: string): ICustomerBuilder;
     setPhoneNumber(phoneNumber: string): ICustomerBuilder;
-    //build(): ICustomer;
+    build(): ICustomer;
 }
 
 class Customer implements ICustomer {
@@ -28,23 +28,32 @@ class CustomerBuilder implements ICustomerBuilder {
     private email: string = "";
     private phoneNumber: string = "";
 
-    setFirstName(firstName: string): ICustomerBuilder {
+    public setFirstName(firstName: string): ICustomerBuilder {
         this.firstName = firstName;
         return this
     }
 
-    setLastName(lastName: string): ICustomerBuilder {
+    public setLastName(lastName: string): ICustomerBuilder {
         this.lastName = lastName;
         return this
     }
 
-    setEmail(email: string): ICustomerBuilder {
+    public setEmail(email: string): ICustomerBuilder {
         this.email = email;
         return this
     }
 
-    setPhoneNumber(phoneNumber: string): ICustomerBuilder {
+    public setPhoneNumber(phoneNumber: string): ICustomerBuilder {
         this.phoneNumber = phoneNumber;
         return this
+    }
+
+    public build(): ICustomer {
+        return new Customer(
+            this.firstName,
+            this.lastName,
+            this.email,
+            this.phoneNumber
+        )
     }
 }
