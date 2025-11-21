@@ -11,9 +11,9 @@
   "description": "",
   "devDependencies": {
     "parcel": "^2.16.1",
-    "prettier": "3.6.2"
-  },
-  "dependencies": {
+    "prettier": "3.6.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.3"
   }
 }

@@ -1,3 +1,5 @@
+export {}; 
+
 interface ICustomer {
     firstName: string;
     lastName: string;
@@ -73,3 +75,13 @@ class CustomerDirector {
         .build();
     }
 }
+
+const builder: ICustomerBuilder = new CustomerBuilder();
+const director: CustomerDirector = new CustomerDirector(builder);
+const customer: ICustomer = director.buildMinimalCustomer(
+    "Alice",
+    "Saly",
+    "text@email.com"
+)
+
+console.log(customer)
