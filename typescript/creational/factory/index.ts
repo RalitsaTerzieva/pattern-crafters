@@ -43,3 +43,9 @@ class CarFactory {
         }
     }
 }
+
+
+const carfactory = new CarFactory();
+
+const sedan = carfactory.createCar("sedan", "Camry", 2023);
+sedan.displayCarInfo();
