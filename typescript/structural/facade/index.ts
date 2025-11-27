@@ -9,3 +9,9 @@ class Boiler {
         console.log("Boiling water...");
     }
 }
+
+class Brewer {
+    brewCoffee() {
+        console.log("Brewing coffee...");
+    }
+}
