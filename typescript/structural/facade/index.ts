@@ -1,17 +1,17 @@
 class Grinder {
-    grinBeads() {
+    public grinBeads() {
         console.log("Grinding beans...");
     }
 }
 
 class Boiler {
-    boilWater() {
+    public boilWater() {
         console.log("Boiling water...");
     }
 }
 
 class Brewer {
-    brewCoffee() {
+    public brewCoffee() {
         console.log("Brewing coffee...");
     }
 }
