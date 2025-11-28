@@ -30,3 +30,11 @@ class CoffeeMakerFacade {
         console.log("Coffee is ready!")
     }
 }
+
+
+let grinder = new Grinder();
+let boiler = new Boiler();
+let brewer = new Brewer();
+
+let coffeeMaker = new CoffeeMakerFacade(grinder, boiler, brewer);
+coffeeMaker.makeCoffee();
