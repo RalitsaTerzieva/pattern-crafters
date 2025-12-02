@@ -22,3 +22,11 @@ class MacosmediaPlayer implements MediaPlayerImplementation {
         console.log("Playing video on macos media player!")
     }
 }
+
+abstract class MediaPlayerAbstarction {
+    constructor(
+        private implementation: MediaPlayerImplementation
+    ) {}
+
+    abstract playFile(): void;
+}
