@@ -25,8 +25,20 @@ class MacosmediaPlayer implements MediaPlayerImplementation {
 
 abstract class MediaPlayerAbstarction {
     constructor(
-        private implementation: MediaPlayerImplementation
+        protected implementation: MediaPlayerImplementation
     ) {}
 
     abstract playFile(): void;
+}
+
+class AudioPlayer extends MediaPlayerAbstarction {
+    public playFile(): void {
+        this.implementation.playAudio();
+    }
+}
+
+class VideoPlayer extends MediaPlayerAbstarction {
+    public playFile(): void {
+        this.implementation.playVideo();
+    }
 }
