@@ -42,3 +42,6 @@ class VideoPlayer extends MediaPlayerAbstarction {
         this.implementation.playVideo();
     }
 }
+
+const windowsAudioPlayer = new AudioPlayer(new WindowsmediaPlayer());
+windowsAudioPlayer.playFile();
