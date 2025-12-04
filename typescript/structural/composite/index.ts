@@ -85,3 +85,14 @@ class Manager implements CompositeEmployee {
         return this.employees
     }
 }
+
+let dev1 = new Developer("Clara", 12000);
+let dev2 = new Developer("Tim", 1300);
+let designer = new Designer("Josh", 10000);
+let manager = new Manager("Mark", 11000);
+manager.addEmployee(dev1);
+manager.addEmployee(dev2);
+manager.addEmployee(designer);
+
+console.log(manager);
+
