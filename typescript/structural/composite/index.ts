@@ -4,6 +4,12 @@ interface Employee {
     getRole(): string;
 }
 
+interface CompositeEmployee {
+    addEmployee(employee: Employee): void;
+    removeEmployee(employee: Employee): void;
+    getEmployee(): Employee[];
+}
+
 class Developer implements Employee{
     constructor(
         private name: string,
