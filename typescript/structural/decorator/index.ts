@@ -12,3 +12,12 @@ class SimpleCoffee implements Coffee {
         return "This is simple coffee."
     }
 }
+
+abstract class CoffeeDecorator implements Coffee {
+    constructor(protected coffee: Coffee) {}
+
+    abstract cost(): number;
+
+
+    abstract description(): string;
+}
