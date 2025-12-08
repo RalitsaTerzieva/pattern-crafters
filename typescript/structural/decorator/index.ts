@@ -18,6 +18,19 @@ abstract class CoffeeDecorator implements Coffee {
 
     abstract cost(): number;
 
-
     abstract description(): string;
+}
+
+class MilkDecorator extends CoffeeDecorator {
+    constructor(coffee: Coffee) {
+        super(coffee);
+    }
+
+    public cost(): number {
+        return this.coffee.cost() + 2;
+    }
+
+    public description(): string {
+        return `${this.coffee.description()}, with milk!`;
+    }
 }
