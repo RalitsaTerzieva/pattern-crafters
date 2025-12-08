@@ -34,3 +34,9 @@ class MilkDecorator extends CoffeeDecorator {
         return `${this.coffee.description()}, with milk!`;
     }
 }
+
+let coffee: Coffee = new SimpleCoffee();
+coffee = new MilkDecorator(coffee);
+
+console.log(`Cost: ${coffee.cost()}`);
+console.log(`Description: ${coffee.description()}`);
