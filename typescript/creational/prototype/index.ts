@@ -22,3 +22,13 @@ class ConcretePrototype implements Prototype {
         return this.user;
     }
 }
+
+
+let user1 = new ConcretePrototype({name: "Alice", email: "test@abv.bg", age: 32});
+let user2 = user1.clone();
+
+if (user1 === user2) {
+    console.log("Both instances are the same")
+} else {
+    console.log("Clone objects are separate instances")
+}
