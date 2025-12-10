@@ -3,9 +3,49 @@ interface Observer {
 }
 
 interface Subject {
-    addobserver(observer: Observer): void;
+    addObserver(observer: Observer): void;
     removeObserver(observer: Observer): void;
     notifyObservers(): void;
     getState(): number;
     setState(state: number): void;
+}
+
+class ConcreteSubject implements Subject {
+    private observers: Observer[] = [];
+    private state: number = 0;
+
+    public addObserver(observer: Observer): void {
+        const isExists = this.observers.includes(observer);
+        if(isExists) {
+            console.log("Observer already exists.")
+        }
+
+        this.observers.push(observer);
+        console.log("Observer added successfully.");
+    }
+
+    public removeObserver(observer: Observer): void {
+        const observerIndex = this.observers.indexOf(observer);
+
+        if(observerIndex === -1) {
+            return console.log("Observer does not exist!");
+        }
+
+        this.observers.splice(observerIndex, 1);
+        console.log("Observer was successfully removed!");
+    }
+
+    public notifyObservers(): void {
+        this.observers.forEach(observer => observer.update(this));
+    }
+
+    public getState(): number {
+        return this.state;
+    }
+
+    public setState(state: number): void {
+        this.state = state;
+        console.log("Setting state");
+        this.notifyObservers();
+    }
 }
