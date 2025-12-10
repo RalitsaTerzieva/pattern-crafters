@@ -2,6 +2,14 @@ interface Observer {
     update(subject: Subject): void;
 }
 
+class ConcreteObserver implements Observer {
+    constructor(private id: number) {}
+
+    public update(subject: Subject): void {
+        console.log(`Observer ${this.id} updated, new state: ${subject.getState()}`);
+    }
+}
+
 interface Subject {
     addObserver(observer: Observer): void;
     removeObserver(observer: Observer): void;
