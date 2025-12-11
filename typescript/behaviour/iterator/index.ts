@@ -5,7 +5,7 @@ class ArrayIterator<T> {
 
     public next(): number {
         const result: number = this.collection[this.position];
-        this.position = +1;
+        this.position += 1;
         return result;
     }
 
@@ -13,3 +13,10 @@ class ArrayIterator<T> {
         return this.position < this.collection.length;
     }
 }
+
+
+const array: number[] = [1,2,3,4,5,6,7,88];
+const iterator = new ArrayIterator(array);
+console.log(iterator.hasNext());
+console.log(iterator.next());
+console.log(iterator.next());
