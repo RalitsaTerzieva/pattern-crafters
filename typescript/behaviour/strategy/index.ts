@@ -41,3 +41,9 @@ class ShoppingCart {
         this.amount = 0;
     }
 }
+
+let cart = new ShoppingCart(new PayPalStrategy());
+cart.addToCart(100);
+cart.addToCart(50);
+
+cart.checkout();
