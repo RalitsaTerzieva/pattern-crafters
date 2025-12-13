@@ -43,3 +43,10 @@ class VanillaCake extends CakeRecipe {
     }
 }
 
+function bakingCake(cake: CakeRecipe) {
+    cake.bakeCake();
+}
+
+console.log("Baking a chocolate cake.");
+bakingCake(new ChocolateCake());
+
