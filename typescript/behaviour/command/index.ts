@@ -66,3 +66,9 @@ class SimpleRemoteControl {
         return this.commandQueue.length > 0;
     }
 }
+
+const remote: SimpleRemoteControl = new SimpleRemoteControl();
+const light: Light = new Light();
+
+remote.setCommand(new TurnOnCommand(light));
+remote.buttonWasPressed();
