@@ -3,6 +3,7 @@ interface ICommand {
     undo(): void;
 }
 
+//Receiver class - does the real work
 class Light {
     public turnOn():void {
         console.log("The light is on");
@@ -13,6 +14,7 @@ class Light {
     }
 }
 
+//Concrete classes
 class TurnOnCommand implements ICommand {
     constructor(private light: Light) {}
     
@@ -34,5 +36,33 @@ class TurnOffCommand implements ICommand {
 
     public undo(): void {
         this.light.turnOn();
+    }
+}
+
+//Invoker class that doesn't know buisness logic
+class SimpleRemoteControl {
+    private currentCommand: ICommand;
+    private undoCommand: ICommand;
+    private commandQueue: ICommand[] = [];
+
+    public setCommand(command: ICommand):void {
+        this.undoCommand = this.currentCommand;
+        this.currentCommand = command;
+        this.commandQueue.push(command);
+    }
+
+    public buttonWasPressed(): void {
+        if(this.commandQueue.length) {
+            const command = this.commandQueue.shift();
+            command?.execute();
+        }
+    }
+
+    public undoButtonWasPressed(): void {
+        this.undoCommand.execute();
+    }
+
+    public hasCommand(): boolean {
+        return this.commandQueue.length > 0;
     }
 }
