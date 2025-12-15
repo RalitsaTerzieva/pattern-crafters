@@ -21,19 +21,19 @@ abstract class AbstractHandler implements Handler {
 
 class MonkeyHandler extends AbstractHandler{
 
-    public handler(request: string): string | null {
+    public handle(request: string): string | null {
         if(request === "Banana") {
-            console.log(`Monkey: I will eat the ${request}.`);
+            return `Monkey: I will eat the ${request}.`;
         }
         return super.handle(request);
     }
 }
 
-class SquirelHandler extends AbstractHandler {
+class SquirrelHandler extends AbstractHandler {
 
-    public handler(request: string): string | null {
+    public handle(request: string): string | null {
         if(request === "Nut") {
-            console.log(`Squirel: I will eat the ${request}.`);
+            return `Squirel: I will eat the ${request}.`;
         }
         return super.handle(request);
     }
@@ -41,10 +41,32 @@ class SquirelHandler extends AbstractHandler {
 
 class DogHandler extends AbstractHandler{
 
-    public handler(request: string): string | null {
+    public handle(request: string): string | null {
         if(request === "Meatball") {
-            console.log(`Dog: I will eat the ${request}.`);
+            return `Dog: I will eat the ${request}.`;
         }
         return super.handle(request);
     }
 }
+
+function clientCode(handler: Handler) {
+    const foods = ["Nut", "Banana", "Coffee", "Meatball"];
+
+    for(const food of foods) {
+        console.log(`Who wants to eat ${food}`);
+        const result = handler.handle(food);
+        if(result) {
+            console.log(result)
+        } else {
+            console.log(`${food} was left untouched.`)
+        }
+    }
+}
+
+const monkey = new MonkeyHandler();
+const squirrel = new SquirrelHandler();
+const dog = new DogHandler();
+
+monkey.setNext(squirrel).setNext(dog);
+
+clientCode(monkey);
