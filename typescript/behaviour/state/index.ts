@@ -1,7 +1,9 @@
+//State interface
 interface LightState {
     switchState(lightSwitch: LightSwitch): void;
 }
 
+//Context
 class LightSwitch {
     constructor(private state: LightState) {}
 
@@ -14,6 +16,7 @@ class LightSwitch {
     }
 }
 
+//Concrete state classes
 class OnState {
     public switchState(lightSwitch: LightSwitch): void {
         console.log("Light state is On. Turning Off...");
@@ -27,3 +30,7 @@ class OffState {
         lightSwitch.setState(new OnState());
     }
 }
+
+
+const lightSwitch = new LightSwitch(new OffState());
+lightSwitch.press();
